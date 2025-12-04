@@ -31,7 +31,7 @@ static char *colors[SchemeLast][2] = {
 	[SchemeOut]  = { "#000000",   "#00ffff" },
 };
 
-static const unsigned int alphas[SchemeLast][2] = {
+static unsigned int alphas[SchemeLast][2] = {
 	[SchemeNorm] = { OPAQUE, alpha },
 	[SchemeSel] = { OPAQUE, alpha },
 	[SchemeOut] = { OPAQUE, alpha },
