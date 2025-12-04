@@ -184,7 +184,7 @@ drw_clr_create(Drw *drw, Clr *dest, const char *clrname, unsigned int alpha)
 
 /* Create color schemes. */
 Clr *
-drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount, const unsigned int alphas[])
+drw_scm_create(Drw *drw, char *clrnames[], size_t clrcount, const unsigned int alphas[])
 {
 	size_t i;
 	Clr *ret;

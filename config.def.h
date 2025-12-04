@@ -7,17 +7,25 @@ static int horizpadbar = 2;                 /* horizontal padding */
 static int vertpadbar = 0;                  /* vertical padding */
 static const unsigned int alpha = 0xee;     /* Amount of opacity. 0xff is opaque             */
 /* -fn option overrides fonts[0]; default X11 font or font set */
+static char font[] = "monospace:size=10";
 static const char *fonts[] = {
+	font,
 	"monospace:size=10"
 };
-static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
-static const char *colors[SchemeLast][2] = {
+
+static char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
+
+static char normfgcolor[] = "#bbbbbb";
+static char normbgcolor[] = "#222222";
+static char selfgcolor[]  = "#eeeeee";
+static char selbgcolor[]  = "#005577";
+static char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#bbbbbb", "#222222" },
-	[SchemeSel] = { "#eeeeee", "#005577" },
+	[SchemeNorm] = { normfgcolor, normbgcolor },
+	[SchemeSel]  = { selfgcolor,  selbgcolor  },
 	[SchemeSelHighlight] = { "#ffc978", "#005577" },
 	[SchemeNormHighlight] = { "#ffc978", "#222222" },
-	[SchemeOut] = { "#000000", "#00ffff" },
+	[SchemeOut]  = { "#000000",   "#00ffff" },
 };
 
 static const unsigned int alphas[SchemeLast][2] = {
@@ -34,3 +42,15 @@ static unsigned int lines      = 0;
  * for example: " /?\"&[]"
  */
 static const char worddelimiters[] = " ";
+
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+	{ "font",        STRING, &font },
+	{ "normfgcolor", STRING, &normfgcolor },
+	{ "normbgcolor", STRING, &normbgcolor },
+	{ "selfgcolor",  STRING, &selfgcolor },
+	{ "selbgcolor",  STRING, &selbgcolor },
+	{ "prompt",      STRING, &prompt },
+};
